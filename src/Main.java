@@ -5,9 +5,12 @@ class Example {
     public static void main(String[] args) throws IOException  { // для генерации исключения
             String s = ""; // для записи символов в строку
             // создание файла
-            File file = new File("input.txt"); // в случае нахождения файла в не каталога, прописывается весь путь к файлу
+            File file = new File("input.txt"); // файл для ввода, в случае нахождения файла в не каталога, прописывается весь путь к файлу
             file.createNewFile(); // создание нового пустого файла
             Scanner sc = new Scanner(file); // считывание информации напрямую с файла
+
+            File output = new File("output.txt"); // файл для вывода ответа калькулятора
+            file.createNewFile(); // создание нового пустого файла
 
             /* символьный поток, предпочтительней (работа с символами и строками)
             // запись в файл, при необходимости этот блок комментируем, чтобы делать изменения в самом файле
@@ -65,6 +68,10 @@ class Example {
              String s = "123 / 0"; // проверка 3+
              */
 
+
+            PrintWriter out = new PrintWriter (output); // класс направляет все выходные данные в указанный файл.
+
+
             // действия калькулятора
         try { // проверяемый блок
             String[] words = sc.nextLine().split(" "); // разбиваем строку на подстроки, добавили
@@ -75,15 +82,23 @@ class Example {
             switch (words[1]) { // выполняем операцию
                 case ("+"):
                     System.out.print(a + b);
+                    out.println (a + b); // выводим данные в файл
+                    out.close();
                     break;
                 case ("-"):
                     System.out.print(a - b);
+                    out.println (a - b);
+                    out.close();
                     break;
                 case ("/"):
                     System.out.print(a / b);
+                    out.println (a / b);
+                    out.close();
                     break;
                 case ("*"):
                     System.out.print(a * b);
+                    out.println (a * b);
+                    out.close();
                     break;
             }
         }
@@ -97,5 +112,6 @@ class Example {
         catch(Exception e){ // Если вместо знака операции было введено любое другое значение,
             System.out.print("Operation Error!");
         }
+
     }
 }
