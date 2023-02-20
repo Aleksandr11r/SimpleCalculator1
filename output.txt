@@ -1,0 +1,12 @@
+35 + 5 = 40.0
+35 - 5 = 30.0
+35 / 5 = 7.0
+35 / 0 = Error! Division by zero
+35 * 5 = 175.0
+35 ? 5 = Operation Error!
+35 / 0 = Error! Division by zero
+35 + 5 = 40.0
+40 * 80 = 3200.0
+1 + 1f = Error! Not number
+25t + 14 = Error! Not number
+25t + 14y = Error! Not number
