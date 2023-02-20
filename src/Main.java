@@ -2,19 +2,20 @@ import java.io.*;
 import java.util.Scanner;
 
 class Example {
-    public static void main(String[] args) throws IOException  { // добавили исключение
+    public static void main(String[] args) throws IOException  { // для генерации исключения
             String s = ""; // для записи символов в строку
             // создание файла
-            File file = new File("input.txt");
+            File file = new File("input.txt"); // в случае нахождения файла в не каталога, прописывается весь путь к файлу
             file.createNewFile(); // создание нового пустого файла
-            /*
+            Scanner sc = new Scanner(file); // считывание информации напрямую с файла
+
+            /* символьный поток, предпочтительней (работа с символами и строками)
             // запись в файл, при необходимости этот блок комментируем, чтобы делать изменения в самом файле
             FileWriter writer = new FileWriter(file); // создание объекта, с указанием места записи
             writer.write("15 + 8"); // запись в файл
             writer.flush(); // очистка модуля записи от любого элемента, иначе будет ошибка
             writer.close(); // закрытие модуля записи
-
-            // чтение из файла, обрабатываются потоки символов Unicode, символьный поток
+            // чтение из файла, обрабатываются потоки символов Unicode, cимвольный поток
         try (FileReader reader = new FileReader("input.txt")) // Поток ввода, который выполняет чтение из файла
             {
                 int c;
@@ -26,10 +27,34 @@ class Example {
         catch(IOException e){
                 System.out.println("Ошибкa ввода-вывода: " + e);
             }
+            Scanner sc = new Scanner(s); // передаем информацию
+            */
+
+            /*
+            // байтовый поток, работа с байтами и двоичными и двоичными объектами
+            // запись в файл, при необходимости этот блок комментируем, чтобы делать изменения в самом файле
+            FileOutputStream writer = new FileOutputStream(file); // создание объекта, с указанием места записи
+            String str = "11 + 19";
+            byte [] buf = str.getBytes(); // переводим в байтовый массив
+            writer.write(buf); // запись в файл
+            writer.flush(); // очистка модуля записи от любого элемента, иначе будет ошибка
+            writer.close(); // закрытие модуля записи
+
+            // чтение из файла, обрабатываются потоки байтов
+            try  (FileInputStream reader = new FileInputStream ("input.txt")) {
+                int size = -1;
+                while ((size = reader.read()) != -1) { // считываем информацию из потока, пока не достигнем конца
+                    s += (char) size;
+                }
+                reader.close(); // закрываем поток чтобы не использовать ресурсы
+            }
+            // перехватываем исключение
+            catch(IOException e){
+                System.out.println("Ошибкa ввода-вывода: " + e);
+            }
 
             Scanner sc = new Scanner(s); // передаем информацию
             */
-             Scanner sc = new Scanner(file); // считывание информации напрямую с файла
 
              /*
              Scanner sc = new Scanner(System.in); // считывание данных с консоли, для первого задания
