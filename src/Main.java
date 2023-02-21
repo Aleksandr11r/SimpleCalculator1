@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 class Example {
     public static void main(String[] args) throws IOException  { // для генерации исключения
-            String s = ""; // для записи символов в строку
+            //String s = ""; // для записи символов в строку
             // создание файла
             File file = new File("input.txt"); // файл для ввода, в случае нахождения файла в не каталога, прописывается весь путь к файлу
             //file.createNewFile(); // создание нового пустого файла, необязательно если создаешь файл вручную
