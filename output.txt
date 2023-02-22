@@ -10,3 +10,4 @@
 1 + 1f = Error! Not number
 25t + 14 = Error! Not number
 25t + 14y = Error! Not number
+10 ? 0 = Operation Error!
